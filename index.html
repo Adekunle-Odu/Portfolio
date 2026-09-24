@@ -1,1 +1,803 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adekunle Odumosu | Professional Portfolio</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font (Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            900: '#0c4a6e',
+                        },
+                        dark: {
+                            bg: '#0b0f17',
+                            card: '#161e2e',
+                            border: '#26334d',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0b0f17;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
 
+        /* Glassmorphism effects */
+        .glass-card {
+            background: rgba(22, 30, 46, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-nav {
+            background: rgba(11, 15, 23, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Custom subtle glowing effects */
+        .glow-accent {
+            box-shadow: 0 0 25px -5px rgba(56, 189, 248, 0.25);
+        }
+    </style>
+</head>
+<body class="bg-dark-bg text-slate-200 font-sans antialiased selection:bg-brand-500 selection:text-white">
+
+    <header class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo / Name -->
+                <a href="#home" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-brand-400 flex items-center justify-center text-white font-bold text-xl shadow-lg group-hover:scale-105 transition-transform">
+                        AO
+                    </div>
+                    <span class="font-bold text-lg tracking-tight text-white group-hover:text-brand-400 transition-colors">
+                        Adekunle<span class="text-brand-400">.</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Menu -->
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
+                    <a href="#home" class="text-slate-300 hover:text-brand-400 transition-colors">Home</a>
+                    <a href="#about" class="text-slate-300 hover:text-brand-400 transition-colors">About</a>
+                    <a href="#skills" class="text-slate-300 hover:text-brand-400 transition-colors">Skills</a>
+                    <a href="#certifications" class="text-slate-300 hover:text-brand-400 transition-colors">Certifications</a>
+                    <a href="#projects" class="text-slate-300 hover:text-brand-400 transition-colors">Projects</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-xl bg-brand-500/10 text-brand-400 border border-brand-500/30 hover:bg-brand-500 hover:text-white transition-all duration-300 font-semibold shadow-sm">
+                        Get In Touch
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle Navigation">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-dark-bg/95 backdrop-blur-lg px-4 pt-2 pb-6 space-y-3">
+            <a href="#home" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-brand-400">Home</a>
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-brand-400">About</a>
+            <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-brand-400">Skills</a>
+            <a href="#certifications" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-brand-400">Certifications</a>
+            <a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800 hover:text-brand-400">Projects</a>
+            <a href="#contact" class="mobile-nav-link block w-full text-center px-4 py-2.5 mt-2 rounded-xl bg-brand-500 text-white font-medium hover:bg-brand-600">Get In Touch</a>
+        </div>
+    </header>
+
+    <section id="home" class="relative pt-32 pb-20 md:pt-44 md:pb-32 overflow-hidden flex items-center min-h-screen">
+        <!-- Background Ambient Glows -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Content Left -->
+                <div class="lg:col-span-7 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs sm:text-sm font-medium mb-6">
+                        <span class="w-2 h-2 rounded-full bg-brand-400 animate-ping"></span>
+                        <span>Computer Science Graduate & Digital Specialist</span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-6xl lg:text-6xl font-extrabold text-white tracking-tight leading-tight">
+                        Bridging Technology, <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-sky-300 to-blue-500">Strategy</span> & Growth.
+                    </h1>
+
+                    <p class="mt-6 text-base sm:text-lg text-slate-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Hi, I'm <strong class="text-slate-200">Adekunle Michael Odumosu</strong>. A versatile Tech Professional skilled in Computer Science, Digital Marketing, Agile Project Coordination, and Cloud/ML Solutions.
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="mt-8 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+                        <a href="#projects" class="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold shadow-lg shadow-brand-500/25 transition-all text-center flex items-center justify-center gap-2">
+                            <span>View My Work</span>
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 rounded-xl border border-slate-700 bg-slate-900/50 hover:bg-slate-800 text-slate-300 font-semibold transition-all text-center">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Key Tool Badges -->
+                    <div class="mt-12 pt-8 border-t border-slate-800/80">
+                        <p class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-3">Core Toolset & Competencies</p>
+                        <div class="flex flex-wrap items-center justify-center lg:justify-start gap-2">
+                            <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-xs border border-slate-700">GoHighLevel</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-xs border border-slate-700">WordPress</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-xs border border-slate-700">Zoho CRM</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-xs border border-slate-700">HubSpot</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-xs border border-slate-700">Agile / Scrum</span>
+                            <span class="px-3 py-1 rounded-lg bg-slate-800/80 text-slate-300 text-xs border border-slate-700">AWS ML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Graphic Right Card -->
+                <div class="lg:col-span-5">
+                    <div class="relative glass-card rounded-2xl p-6 sm:p-8 border border-slate-700/50 shadow-2xl glow-accent">
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -top-4 -right-4 bg-brand-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-lg">
+                            B.Tech CS Graduate
+                        </div>
+
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-16 h-16 rounded-2xl bg-slate-800 border border-slate-700 flex items-center justify-center text-brand-400 text-3xl">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-white">Adekunle Odumosu</h3>
+                                <p class="text-sm text-brand-400 font-medium">Digital Tech Specialist</p>
+                                <p class="text-xs text-slate-400 mt-0.5"><i class="fa-solid fa-location-dot text-slate-500 mr-1"></i>Oyo / Lagos, Nigeria</p>
+                            </div>
+                        </div>
+
+                        <!-- Stats Highlight -->
+                        <div class="grid grid-cols-2 gap-4 mb-6">
+                            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                                <span class="block text-xl font-bold text-white">4+</span>
+                                <span class="text-xs text-slate-400">Verified Certifications</span>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-slate-900/60 border border-slate-800">
+                                <span class="block text-xl font-bold text-white">100%</span>
+                                <span class="text-xs text-slate-400">Project Dedication</span>
+                            </div>
+                        </div>
+
+                        <!-- Contact Quick Links in Hero Card -->
+                        <div class="space-y-3 text-xs sm:text-sm text-slate-300">
+                            <a href="mailto:adekunleodumosu@gmail.com" class="flex items-center gap-3 hover:text-brand-400 transition-colors">
+                                <i class="fa-solid fa-envelope text-brand-400"></i>
+                                <span>adekunleodumosu@gmail.com</span>
+                            </a>
+                            <a href="tel:07034417073" class="flex items-center gap-3 hover:text-brand-400 transition-colors">
+                                <i class="fa-solid fa-phone text-brand-400"></i>
+                                <span>07034417073</span>
+                            </a>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-400"></i>
+                                <span>Full-Funnel Digital Marketing & Ads</span>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <i class="fa-solid fa-circle-check text-brand-400"></i>
+                                <span>Agile Project Management (HP LIFE)</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 pt-5 border-t border-slate-800 flex justify-between items-center text-xs text-slate-400">
+                            <span>Status: Open to Opportunities</span>
+                            <span class="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-slate-900/40 relative border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-400 mb-2">Background & Story</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">About Me</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+                
+                <!-- About Description -->
+                <div class="lg:col-span-7 space-y-6 text-slate-300 leading-relaxed">
+                    <p class="text-lg text-slate-200 font-medium">
+                        I am a versatile Computer Science graduate with an extensive blend of technical expertise, digital marketing prowess, and agile project management skills.
+                    </p>
+                    <p>
+                        Having earned my <strong class="text-white">B.Tech in Computer Science</strong> from Ladoke Akintola University of Technology (LAUTECH), my foundation lies in hardware systems, network infrastructure, software solutions, and analytical thinking.
+                    </p>
+                    <p>
+                        Over the years, I have expanded my competencies into high-impact digital sectors—mastering CRM administration (GoHighLevel, HubSpot, Zoho), web platform management, digital ad execution, content generation, and Agile project coordination. My holistic experience enables me to seamlessly connect technical development with commercial execution and operations.
+                    </p>
+
+                    <!-- Key Soft Skills -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 flex items-start gap-3">
+                            <i class="fa-solid fa-comments text-brand-400 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Strategic Communication</h4>
+                                <p class="text-xs text-slate-400 mt-1">In-depth technical reporting & clear stakeholder engagement.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 rounded-xl bg-slate-800/50 border border-slate-700/60 flex items-start gap-3">
+                            <i class="fa-solid fa-diagram-project text-brand-400 text-xl mt-1"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-sm">Agile Leadership</h4>
+                                <p class="text-xs text-slate-400 mt-1">Sprint planning, Scrum/Kanban, and cross-functional coordination.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Academic & Educational Timeline -->
+                <div class="lg:col-span-5">
+                    <div class="glass-card rounded-2xl p-6 border border-slate-800 space-y-6">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-3">
+                            <i class="fa-solid fa-graduation-cap text-brand-400"></i>
+                            Education & Qualifications
+                        </h3>
+
+                        <div class="relative pl-6 border-l-2 border-slate-700 space-y-8">
+                            
+                            <!-- LAUTECH -->
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-brand-500 border-4 border-slate-900"></span>
+                                <span class="text-xs font-semibold text-brand-400 uppercase tracking-wide">2006 – 2011</span>
+                                <h4 class="text-base font-bold text-white mt-0.5">B. Tech in Computer Science</h4>
+                                <p class="text-sm text-slate-300">Ladoke Akintola University of Technology</p>
+                                <p class="text-xs text-slate-400 mt-1">Ogbomosho, Oyo State, Nigeria</p>
+                                <p class="text-xs text-slate-400 mt-2">
+                                    Core Studies: Software Development, Systems Networking, PC Installation & Maintenance, Database Fundamentals.
+                                </p>
+                            </div>
+
+                            <!-- Continuous Education Badge -->
+                            <div class="relative">
+                                <span class="absolute -left-[31px] top-1 w-4 h-4 rounded-full bg-emerald-500 border-4 border-slate-900"></span>
+                                <span class="text-xs font-semibold text-emerald-400 uppercase tracking-wide">Ongoing Development</span>
+                                <h4 class="text-base font-bold text-white mt-0.5">Professional Certification Lifecycle</h4>
+                                <p class="text-xs text-slate-400 mt-1">Active specialization in AWS ML, Digital Ads (Aleph), Agile Management (HP LIFE), & ALX Foundations.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-400 mb-2">Capabilities & Tools</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">Skills & Competencies</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Skills Category Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Category 1: Web & Technical -->
+                <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-brand-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-code"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Web & IT Engineering</h3>
+                    <p class="text-xs text-slate-400 mb-6">Technical infrastructure, web platforms, and hardware networking.</p>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-globe text-brand-400 text-xs"></i> Web Design & Solutions</span>
+                            <span class="text-xs font-bold text-brand-400">WordPress</span>
+                        </li>
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-network-wired text-brand-400 text-xs"></i> System Networking</span>
+                            <span class="text-xs text-slate-400">Advanced</span>
+                        </li>
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-screwdriver-wrench text-brand-400 text-xs"></i> PC Installation & Repair</span>
+                            <span class="text-xs text-slate-400">Hardware</span>
+                        </li>
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-brain text-brand-400 text-xs"></i> Machine Learning Tech</span>
+                            <span class="text-xs text-slate-400">AWS Foundations</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 2: Digital Marketing & Creative -->
+                <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-brand-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Digital Growth & Creative</h3>
+                    <p class="text-xs text-slate-400 mb-6">Audience acquisition, social strategies, and graphic asset design.</p>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-rectangle-ad text-brand-400 text-xs"></i> Digital Advertising</span>
+                            <span class="text-xs font-bold text-brand-400">Certified Expert</span>
+                        </li>
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-share-nodes text-brand-400 text-xs"></i> Social Media Strategy</span>
+                            <span class="text-xs text-slate-400">Buffer / CapCut</span>
+                        </li>
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-palette text-brand-400 text-xs"></i> Graphic Design & Visuals</span>
+                            <span class="text-xs text-slate-400">Canva / CorelDraw</span>
+                        </li>
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-users text-brand-400 text-xs"></i> Community Management</span>
+                            <span class="text-xs text-slate-400">Engagement</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Category 3: Operations & Software Suites -->
+                <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-brand-500/50 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-cubes"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">CRM & Project Operations</h3>
+                    <p class="text-xs text-slate-400 mb-6">Streamlining workflows, customer relationships, and team agility.</p>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-list-check text-brand-400 text-xs"></i> Agile & Scrum Mgmt</span>
+                            <span class="text-xs font-bold text-brand-400">HP LIFE Cert</span>
+                        </li>
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-sliders text-brand-400 text-xs"></i> CRM Suites</span>
+                            <span class="text-xs text-slate-400">GHL / Zoho / HubSpot</span>
+                        </li>
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-calendar-check text-brand-400 text-xs"></i> Operational Software</span>
+                            <span class="text-xs text-slate-400">Calendly / Notion / Asana</span>
+                        </li>
+                        <li class="flex items-center justify-between text-sm text-slate-300 p-2 rounded-lg bg-slate-900/50">
+                            <span class="flex items-center gap-2"><i class="fa-solid fa-file-excel text-brand-400 text-xs"></i> Office & Workspaces</span>
+                            <span class="text-xs text-slate-400">MS Office / Google Suite</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Software Icons Grid Row -->
+            <div class="mt-12 p-6 glass-card rounded-2xl border border-slate-800">
+                <p class="text-center text-xs font-semibold text-slate-400 uppercase tracking-widest mb-6">Mastered Software & Platforms</p>
+                <div class="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-slate-400 text-sm">
+                    <span class="flex items-center gap-2 hover:text-brand-400 transition-colors"><i class="fa-brands fa-wordpress text-lg"></i> WordPress</span>
+                    <span class="flex items-center gap-2 hover:text-brand-400 transition-colors"><i class="fa-brands fa-aws text-lg"></i> AWS</span>
+                    <span class="flex items-center gap-2 hover:text-brand-400 transition-colors"><i class="fa-solid fa-headset text-lg"></i> GoHighLevel</span>
+                    <span class="flex items-center gap-2 hover:text-brand-400 transition-colors"><i class="fa-solid fa-chart-pie text-lg"></i> Zoho CRM</span>
+                    <span class="flex items-center gap-2 hover:text-brand-400 transition-colors"><i class="fa-brands fa-hubspot text-lg"></i> HubSpot</span>
+                    <span class="flex items-center gap-2 hover:text-brand-400 transition-colors"><i class="fa-brands fa-slack text-lg"></i> Slack</span>
+                    <span class="flex items-center gap-2 hover:text-brand-400 transition-colors"><i class="fa-solid fa-note-sticky text-lg"></i> Notion</span>
+                    <span class="flex items-center gap-2 hover:text-brand-400 transition-colors"><i class="fa-solid fa-list text-lg"></i> Asana</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="certifications" class="py-20 bg-slate-900/40 relative border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-400 mb-2">Verified Credentials</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">Certifications & Awards</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Certifications Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                
+                <!-- Cert 1: ALX -->
+                <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 text-xs font-semibold">
+                                ALX Professional
+                            </span>
+                            <span class="text-xs text-slate-500">Issued: Sept 30, 2025</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">
+                            Professional Foundations Certificate
+                        </h3>
+                        <p class="text-sm text-slate-300 mt-1 font-medium">Professional Development Skills for the Digital Age</p>
+                        <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                            Issued by ALX. Focuses on essential career readiness, modern collaborative technologies, critical thinking, and digital age leadership skills.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Credential ID: pPESYMn8ZL</span>
+                        <a href="https://savanna.alxafrica.com/certificates/pPESYMn8ZL" target="_blank" class="text-brand-400 hover:underline inline-flex items-center gap-1 font-semibold">
+                            Verify Certificate <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cert 2: Digital Ad Expert -->
+                <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-semibold">
+                                Digital Ad Expert by Aleph
+                            </span>
+                            <span class="text-xs text-slate-500">Completed: Nov 14, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">
+                            3-Month Digital Ad Certificate
+                        </h3>
+                        <p class="text-sm text-slate-300 mt-1 font-medium">Comprehensive Digital Marketing & Advertising</p>
+                        <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                            Certified in paid media strategy, digital campaign architecture, social ad platforms performance analysis, and audience targeting.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Aleph Education Program</span>
+                        <span class="text-emerald-400 font-medium"><i class="fa-solid fa-circle-check"></i> Verified</span>
+                    </div>
+                </div>
+
+                <!-- Cert 3: HP LIFE Agile -->
+                <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-xs font-semibold">
+                                HP LIFE Foundation
+                            </span>
+                            <span class="text-xs text-slate-500">Completed: Nov 26, 2024</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">
+                            Agile Project Management
+                        </h3>
+                        <p class="text-sm text-slate-300 mt-1 font-medium">Scrum, Kanban & Iterative Product Development</p>
+                        <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                            Competencies in Minimum Viable Product (MVP) definitions, incremental project delivery, Scrum/Kanban frameworks, and team agility enhancement.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Serial: 49ca61be-b73c-4aa4</span>
+                        <span class="text-emerald-400 font-medium"><i class="fa-solid fa-circle-check"></i> Verified</span>
+                    </div>
+                </div>
+
+                <!-- Cert 4: AWS ML -->
+                <div class="glass-card rounded-2xl p-6 border border-slate-800 hover:border-brand-500/40 transition-all flex flex-col justify-between group">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold">
+                                AWS & Coursera
+                            </span>
+                            <span class="text-xs text-slate-500">Completed: Dec 2, 2020</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-white group-hover:text-brand-400 transition-colors">
+                            Getting Started with AWS Machine Learning
+                        </h3>
+                        <p class="text-sm text-slate-300 mt-1 font-medium">Amazon Web Services Official Training</p>
+                        <p class="text-xs text-slate-400 mt-3 leading-relaxed">
+                            Authorized by AWS. Fundamental knowledge of Machine Learning pipelines, cloud AI service implementation, and data preparation logic.
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between text-xs">
+                        <span class="text-slate-500">Coursera ID: JBW37PPJX2CB</span>
+                        <a href="https://coursera.org/verify/JBW37PPJX2CB" target="_blank" class="text-brand-400 hover:underline inline-flex items-center gap-1 font-semibold">
+                            Verify Certificate <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-400 mb-2">Portfolio Showcase</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">Featured Work & Case Studies</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-12" id="project-filters">
+                <button class="filter-btn active px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-brand-500 text-white" data-filter="all">
+                    All Works
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-400 hover:text-white border border-slate-700" data-filter="web">
+                    Web & Systems
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-400 hover:text-white border border-slate-700" data-filter="marketing">
+                    Digital Marketing & Strategy
+                </button>
+                <button class="filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition-all bg-slate-800/80 text-slate-400 hover:text-white border border-slate-700" data-filter="operations">
+                    Agile & Operations
+                </button>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-700 transition-all" data-category="web">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-brand-500/10 rounded-full blur-xl"></div>
+                        <span class="text-xs font-bold text-brand-400 tracking-wider uppercase">Web Architecture</span>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Corporate Web Solution & Portal</h4>
+                            <p class="text-xs text-slate-400 mt-1">WordPress / Security / Maintenance</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            End-to-end web deployment and optimization for business platforms, featuring seamless responsive UI, secure form integration, and speed optimization.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">WordPress</span>
+                            <span class="text-[10px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Networking</span>
+                            <span class="text-[10px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">UI Design</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-400 hover:text-brand-300">
+                            Request Demo Details <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-700 transition-all" data-category="marketing">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-blue-500/10 rounded-full blur-xl"></div>
+                        <span class="text-xs font-bold text-blue-400 tracking-wider uppercase">Growth & Paid Media</span>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">Multi-Channel Digital Ad Campaign</h4>
+                            <p class="text-xs text-slate-400 mt-1">Aleph Ad Strategy / Analytics</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            Designed and managed targeted digital ad funnels across social channels, maximizing engagement ROI through audience segmentation and creative testing.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Social Strategy</span>
+                            <span class="text-[10px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Meta/Google Ads</span>
+                            <span class="text-[10px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Canva</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-400 hover:text-brand-300">
+                            View Case Study <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card glass-card rounded-2xl overflow-hidden border border-slate-800 hover:border-slate-700 transition-all" data-category="operations">
+                    <div class="h-48 bg-gradient-to-br from-slate-800 to-slate-900 p-6 flex flex-col justify-between relative overflow-hidden">
+                        <div class="absolute -right-6 -bottom-6 w-32 h-32 bg-emerald-500/10 rounded-full blur-xl"></div>
+                        <span class="text-xs font-bold text-emerald-400 tracking-wider uppercase">CRM Automation</span>
+                        <div>
+                            <h4 class="text-xl font-bold text-white">GoHighLevel Lead Pipeline Setup</h4>
+                            <p class="text-xs text-slate-400 mt-1">GHL / Zoho / Calendly Integration</p>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <p class="text-xs text-slate-300 leading-relaxed mb-4">
+                            Automated client onboarding, appointment booking schedules, and sales pipeline management using GoHighLevel and integrated communications tools.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-6">
+                            <span class="text-[10px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">GoHighLevel</span>
+                            <span class="text-[10px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">Zoho</span>
+                            <span class="text-[10px] px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">OpenPhone</span>
+                        </div>
+                        <a href="#contact" class="inline-flex items-center gap-2 text-xs font-semibold text-brand-400 hover:text-brand-300">
+                            System Details <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-slate-900/40 relative border-t border-slate-800/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-semibold uppercase tracking-wider text-brand-400 mb-2">Connect With Me</h2>
+                <p class="text-3xl sm:text-4xl font-bold text-white">Get In Touch</p>
+                <div class="w-12 h-1 bg-brand-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                
+                <!-- Direct Contact Details -->
+                <div class="lg:col-span-5 space-y-6">
+                    <div class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-800 space-y-6">
+                        <h3 class="text-xl font-bold text-white mb-4">Contact Information</h3>
+                        <p class="text-sm text-slate-300 leading-relaxed">
+                            Whether you need web solutions, digital strategy execution, or agile project management expertise, feel free to reach out directly via phone or email!
+                        </p>
+
+                        <div class="space-y-4 pt-2">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-user text-base"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">Full Name</span>
+                                    <span class="text-sm font-semibold text-white">Adekunle Michael Odumosu</span>
+                                </div>
+                            </div>
+
+                            <!-- Email Contact Item -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-envelope text-base"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">Email Address</span>
+                                    <a href="mailto:adekunleodumosu@gmail.com" class="text-sm font-semibold text-brand-400 hover:underline">
+                                        adekunleodumosu@gmail.com
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Phone Contact Item -->
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-phone text-base"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">Phone / WhatsApp</span>
+                                    <a href="tel:07034417073" class="text-sm font-semibold text-brand-400 hover:underline">
+                                        07034417073
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-graduation-cap text-base"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">Education</span>
+                                    <span class="text-sm font-semibold text-white">B.Tech Computer Science (LAUTECH)</span>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-xl bg-brand-500/10 text-brand-400 flex items-center justify-center shrink-0">
+                                    <i class="fa-solid fa-briefcase text-base"></i>
+                                </div>
+                                <div>
+                                    <span class="text-xs text-slate-400 block">Role Availability</span>
+                                    <span class="text-sm font-semibold text-white">Digital Project Lead / IT Specialist</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Social Links -->
+                        <div class="pt-6 border-t border-slate-800">
+                            <span class="text-xs font-semibold text-slate-400 block mb-3">Professional Profiles & Quick Contact</span>
+                            <div class="flex items-center gap-3">
+                                <a href="mailto:adekunleodumosu@gmail.com" title="Send Email" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-500 hover:text-white text-slate-300 flex items-center justify-center transition-all">
+                                    <i class="fa-solid fa-envelope text-sm"></i>
+                                </a>
+                                <a href="tel:07034417073" title="Call Now" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-500 hover:text-white text-slate-300 flex items-center justify-center transition-all">
+                                    <i class="fa-solid fa-phone text-sm"></i>
+                                </a>
+                                <a href="https://linkedin.com" target="_blank" title="LinkedIn Profile" class="w-9 h-9 rounded-lg bg-slate-800 hover:bg-brand-500 hover:text-white text-slate-300 flex items-center justify-center transition-all">
+                                    <i class="fa-brands fa-linkedin-in text-sm"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Interactive Form -->
+                <div class="lg:col-span-7">
+                    <form id="contact-form" class="glass-card rounded-2xl p-6 sm:p-8 border border-slate-800 space-y-6">
+                        
+                        <!-- Alert Box inside Form -->
+                        <div id="form-alert" class="hidden p-4 rounded-xl text-xs font-medium"></div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-xs font-semibold text-slate-300 mb-2">Your Name *</label>
+                                <input type="text" id="name" required placeholder="e.g. John Doe" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700/80 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-400 transition-colors">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-xs font-semibold text-slate-300 mb-2">Email Address *</label>
+                                <input type="email" id="email" required placeholder="e.g. john@example.com" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700/80 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-400 transition-colors">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-xs font-semibold text-slate-300 mb-2">Subject *</label>
+                            <input type="text" id="subject" required placeholder="Project Inquiry / Opportunity" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700/80 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-400 transition-colors">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-xs font-semibold text-slate-300 mb-2">Message *</label>
+                            <textarea id="message" rows="5" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-700/80 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-brand-400 transition-colors"></textarea>
+                        </div>
+
+                        <button type="submit" id="submit-btn" class="w-full py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold shadow-lg shadow-brand-500/20 transition-all flex items-center justify-center gap-2">
+                            <span>Send Message</span>
+                            <i class="fa-solid fa-paper-plane text-xs"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-10 border-t border-slate-800/80 bg-dark-bg text-slate-500 text-xs text-center">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="text-left">
+                <p>© <span id="current-year"></span> Adekunle Odumosu. All rights reserved.</p>
+                <div class="flex items-center gap-4 mt-2 text-slate-400">
+                    <a href="mailto:adekunleodumosu@gmail.com" class="hover:text-brand-400 transition-colors"><i class="fa-solid fa-envelope mr-1"></i>adekunleodumosu@gmail.com</a>
+                    <a href="tel:07034417073" class="hover:text-brand-400 transition-colors"><i class="fa-solid fa-phone mr-1"></i>07034417073</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-6 text-slate-400">
+                <a href="#home" class="hover:text-brand-400 transition-colors">Home</a>
+                <a href="#about" class="hover:text-brand-400 transition-colors">About</a>
+                <a href="#skills" class="hover:text-brand-400 transition-colors">Skills</a>
+                <a href="#contact" class="hover:text-brand-400 transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
